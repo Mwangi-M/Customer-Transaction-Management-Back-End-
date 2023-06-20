@@ -1,0 +1,28 @@
+<configuration>
+
+    <logger name="com.example.api.controllers" level="debug" />
+    <logger name="com.example.api.services" level="info" />
+
+    <!-- Appender for requests -->
+    <appender name="requestAppender" class="ch.qos.logback.core.FileAppender">
+        <file>C:/var/log/applications/API/logs/request.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender for responses -->
+    <appender name="responseAppender" class="ch.qos.logback.core.FileAppender">
+        <file>C:/var/log/applications/API/logs/response.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger -->
+    <root level="info">
+        <appender-ref ref="requestAppender" />
+        <appender-ref ref="responseAppender" />
+    </root>
+
+</configuration>
